@@ -4,12 +4,13 @@ const PORT = 3000;
 
 const app = express();
 
-app.listen(PORT, () => console.log(`server listening on port:${PORT}`));
+app.set('view engine', 'ejs');
 
+app.listen(PORT, () => console.log(`server listening on port:${PORT}`));
 
 app.get('/', (req, res) => {
   //res.send('<p>Home page</p>'); 
-  res.sendFile('./views/index.html', { root: __dirname });
+  res.render('index');
 });
 
 app.get('/about', (req, res) => {
